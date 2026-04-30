@@ -1,0 +1,658 @@
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Walker | Master Personal Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap');
+
+        :root {
+            --bg-dark: #0D0D0D;
+            --accent: #FF6B00;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-oswald {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            display: flex;
+            width: 200%;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-slow {
+            animation: marquee 45s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* FAQ Icon Transition */
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+    </style>
+    <link id="all-fonts-link-font-oswald" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;display=swap">
+    <style id="all-fonts-style-font-oswald">
+        .font-oswald {
+            font-family: 'Oswald', sans-serif !important;
+        }
+    </style><!-- aura-ga4-start -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2M6V79H761"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2M6V79H761');
+    </script>
+    <!-- aura-ga4-end -->
+</head>
+
+<body class="overflow-x-hidden selection:bg-[#FF6B00] selection:text-[#0D0D0D]">
+
+    <!-- 1. NAVIGATION -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 bg-[#0D0D0D]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-oswald text-2xl font-medium tracking-tight uppercase flex items-center gap-1">
+                StephenPT<span class="text-[#FF6B00]">•</span>
+            </a>
+
+            <nav class="hidden md:flex gap-8">
+                <a href="#about"
+                    class="text-base font-medium text-zinc-300 hover:text-[#FF6B00] transition-colors">About</a>
+                <a href="#programs"
+                    class="text-base font-medium text-zinc-300 hover:text-[#FF6B00] transition-colors">Programs</a>
+                <a href="#testimonials"
+                    class="text-base font-medium text-zinc-300 hover:text-[#FF6B00] transition-colors">Testimonials</a>
+                <a href="#pricing"
+                    class="text-base font-medium text-zinc-300 hover:text-[#FF6B00] transition-colors">Pricing</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact"
+                    class="hidden md:inline-flex bg-[#FF6B00] text-[#0D0D0D] px-6 py-2.5 rounded-full text-base font-medium hover:bg-[#FF7A1A] transition-colors items-center justify-center">
+                    Contact
+                </a>
+                <button class="md:hidden text-white p-2">
+                    <i data-lucide="menu" stroke-width="1.5"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[#0D0D0D] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+            <div class="relative z-10 max-w-2xl">
+                <h1
+                    class="font-oswald text-5xl md:text-6xl lg:text-[5rem] font-medium tracking-tight uppercase leading-[1.05] text-white">
+                    I help people <span class="text-[#FF6B00]">move</span>,<br>
+                    build and transform<br>
+                    their best self
+                </h1>
+                <p class="mt-8 text-lg md:text-xl text-zinc-400 leading-relaxed max-w-lg">
+                    Personalised training and proven programs designed to transform your fitness, boost confidence, and
+                    keep you motivated every step of the way — in Warsaw or online.
+                </p>
+                <div class="mt-10">
+                    <a href="#"
+                        class="inline-flex items-center gap-3 bg-[#FF6B00] text-[#0D0D0D] px-8 py-4 rounded-full text-lg font-medium hover:bg-[#FF7A1A] transition-transform hover:scale-105 group">
+                        <span
+                            class="bg-[#0D0D0D] text-[#FF6B00] p-1.5 rounded-full group-hover:bg-white group-hover:text-[#0D0D0D] transition-colors">
+                            <i data-lucide="play" class="w-5 h-5 ml-0.5" stroke-width="1.5"></i>
+                        </span>
+                        Watch Free Tutorial
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative w-full aspect-[4/3] sm:aspect-square flex justify-center items-center">
+                <!-- Decorative background elements -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-[#FF6B00]/5 to-transparent rounded-full blur-3xl">
+                </div>
+
+                <!-- Main Image Container -->
+                <div class="relative w-[90%] h-[90%] max-w-[500px]">
+                    <!-- Glow Ring -->
+                    <div
+                        class="absolute -inset-4 border border-[#FF6B00]/40 rounded-full shadow-[0_0_60px_rgba(255,107,0,0.15)] animate-[pulse_4s_ease-in-out_infinite]">
+                    </div>
+
+                    <!-- Image Wrapper -->
+                    <div class="relative w-full h-full rounded-full overflow-hidden bg-zinc-900 border border-white/5">
+                        <!-- Placeholder for Trainer Photo -->
+                        <div class="absolute inset-0 bg-zinc-800 mix-blend-overlay"></div>
+                        <div
+                            class="flex text-zinc-700 absolute top-0 right-0 bottom-0 left-0 items-center justify-center">
+                            <i data-lucide="image" class="w-16 h-16 opacity-50" stroke-width="1.5"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SCROLLING MARQUEE -->
+    <div class="bg-[#FF6B00] py-4 border-y border-black overflow-hidden relative">
+        <div
+            class="marquee-container text-[#0D0D0D] font-oswald text-2xl tracking-tight font-medium uppercase flex items-center whitespace-nowrap">
+            <span class="mx-4">STRENGTH</span><span class="mx-2">•</span>
+            <span class="mx-4">MOVEMENT</span><span class="mx-2">•</span>
+            <span class="mx-4">PARKOUR</span><span class="mx-2">•</span>
+            <span class="mx-4">CONDITIONING</span><span class="mx-2">•</span>
+            <span class="mx-4">MOBILITY</span><span class="mx-2">•</span>
+            <span class="mx-4">MINDFULNESS</span><span class="mx-2">•</span>
+            <span class="mx-4">BODY TRANSFORMATION</span><span class="mx-2">•</span>
+            <span class="mx-4">WARSAW</span><span class="mx-2">•</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="mx-4">STRENGTH</span><span class="mx-2">•</span>
+            <span class="mx-4">MOVEMENT</span><span class="mx-2">•</span>
+            <span class="mx-4">PARKOUR</span><span class="mx-2">•</span>
+            <span class="mx-4">CONDITIONING</span><span class="mx-2">•</span>
+            <span class="mx-4">MOBILITY</span><span class="mx-2">•</span>
+            <span class="mx-4">MINDFULNESS</span><span class="mx-2">•</span>
+            <span class="mx-4">BODY TRANSFORMATION</span><span class="mx-2">•</span>
+            <span class="mx-4">WARSAW</span><span class="mx-2">•</span>
+        </div>
+    </div>
+
+    <!-- 4. ABOUT / STATS -->
+    <section id="about" class="bg-white text-[#0D0D0D] py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+            <div
+                class="relative w-full aspect-[4/5] bg-zinc-100 rounded-[2rem] overflow-hidden shadow-xl border border-zinc-200">
+                <!-- Placeholder for Square Photo -->
+                <div class="flex text-zinc-300 absolute top-0 right-0 bottom-0 left-0 items-center justify-center">
+                    <i data-lucide="user" class="w-24 h-24" stroke-width="1.5"></i>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="font-oswald text-4xl lg:text-5xl font-medium tracking-tight uppercase leading-tight">
+                    CERTIFIED MASTER TRAINER GUIDING YOU TO ACHIEVE YOUR BEST BODY AND MOVEMENT
+                </h2>
+                <p class="mt-6 text-lg text-zinc-600 leading-relaxed">
+                    I'm Stephen Walker, a Master Trainer dedicated to helping people move better and transform their
+                    lives. With a background in parkour, strength training and mindfulness coaching, I make fitness
+                    effective, fearless and sustainable.
+                </p>
+
+                <div class="mt-12 grid grid-cols-2 gap-x-8 gap-y-10">
+                    <div>
+                        <div class="font-oswald text-4xl lg:text-5xl text-[#FF6B00] font-medium tracking-tight mb-2">
+                            100+</div>
+                        <div class="text-base text-zinc-800 font-medium uppercase tracking-wider">Happy Clients</div>
+                    </div>
+                    <div>
+                        <div class="font-oswald text-4xl lg:text-5xl text-[#FF6B00] font-medium tracking-tight mb-2">
+                            500+</div>
+                        <div class="text-base text-zinc-800 font-medium uppercase tracking-wider">Sessions Completed
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-oswald text-4xl lg:text-5xl text-[#FF6B00] font-medium tracking-tight mb-2">8+
+                        </div>
+                        <div class="text-base text-zinc-800 font-medium uppercase tracking-wider">Years of Experience
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-oswald text-4xl lg:text-5xl text-[#FF6B00] font-medium tracking-tight mb-2">6
+                        </div>
+                        <div class="text-base text-zinc-800 font-medium uppercase tracking-wider">Specialised Programs
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. PRICING -->
+    <section id="pricing" class="bg-[#0D0D0D] py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-oswald text-4xl lg:text-5xl font-medium tracking-tight uppercase text-white">
+                    Pick Your <span class="text-[#FF6B00]">Perfect</span> Plan
+                </h2>
+                <p class="mt-4 text-lg text-zinc-400">Find the perfect training program to match your goals and
+                    lifestyle.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
+
+                <!-- Plan 1 -->
+                <div
+                    class="bg-[#111111] border border-white/10 rounded-[2rem] p-8 lg:p-10 transition-colors hover:border-[#FF6B00]/40">
+                    <h3 class="font-oswald text-3xl font-medium tracking-tight uppercase text-white mb-2">Starter Plan
+                    </h3>
+                    <div class="text-lg text-zinc-400 mb-8 pb-8 border-b border-white/10 h-[60px]">Contact for pricing
+                    </div>
+
+                    <ul class="space-y-5 mb-10 min-h-[200px]">
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#FF6B00] mt-2 shrink-0"></div>
+                            <span class="text-lg text-zinc-300">2 Sessions per Week</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#FF6B00] mt-2 shrink-0"></div>
+                            <span class="text-lg text-zinc-300">Personalised Beginner Workout Plan</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#FF6B00] mt-2 shrink-0"></div>
+                            <span class="text-lg text-zinc-300">Movement Assessment</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#FF6B00] mt-2 shrink-0"></div>
+                            <span class="text-lg text-zinc-300">Flexible Scheduling</span>
+                        </li>
+                    </ul>
+
+                    <a href="#"
+                        class="block w-full py-4 px-6 rounded-full border border-[#FF6B00] text-[#FF6B00] text-center text-lg font-medium hover:bg-[#FF6B00] hover:text-[#0D0D0D] transition-colors">
+                        Book Your Plan
+                    </a>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div
+                    class="bg-[#FF6B00] rounded-[2rem] p-8 lg:p-10 transform md:-translate-y-4 shadow-2xl relative overflow-hidden">
+                    <!-- Subtle highlight -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/20 blur-3xl rounded-full"></div>
+
+                    <h3
+                        class="font-oswald text-3xl font-medium tracking-tight uppercase text-[#0D0D0D] mb-2 relative z-10">
+                        Standard Plan</h3>
+                    <div
+                        class="text-lg text-[#0D0D0D]/80 mb-8 pb-8 border-b border-[#0D0D0D]/10 font-medium h-[60px] relative z-10">
+                        Most Popular</div>
+
+                    <ul class="space-y-5 mb-10 min-h-[200px] relative z-10">
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#0D0D0D] mt-2 shrink-0"></div>
+                            <span class="text-lg text-[#0D0D0D] font-medium">4 Sessions per Week</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#0D0D0D] mt-2 shrink-0"></div>
+                            <span class="text-lg text-[#0D0D0D] font-medium">Nutrition Guidance Included</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#0D0D0D] mt-2 shrink-0"></div>
+                            <span class="text-lg text-[#0D0D0D] font-medium">Progress Tracking &amp; Feedback</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#0D0D0D] mt-2 shrink-0"></div>
+                            <span class="text-lg text-[#0D0D0D] font-medium">Goal-Oriented Training Plan</span>
+                        </li>
+                    </ul>
+
+                    <a href="#"
+                        class="block w-full py-4 px-6 rounded-full bg-[#0D0D0D] text-white text-center text-lg font-medium hover:bg-zinc-800 transition-colors relative z-10">
+                        Book Your Plan
+                    </a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div
+                    class="bg-[#111111] border border-white/10 rounded-[2rem] p-8 lg:p-10 transition-colors hover:border-[#FF6B00]/40">
+                    <h3 class="font-oswald text-3xl font-medium tracking-tight uppercase text-white mb-2">Premium Plan
+                    </h3>
+                    <div class="text-lg text-zinc-400 mb-8 pb-8 border-b border-white/10 h-[60px]">Contact for pricing
+                    </div>
+
+                    <ul class="space-y-5 mb-10 min-h-[200px]">
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#FF6B00] mt-2 shrink-0"></div>
+                            <span class="text-lg text-zinc-300">Unlimited Sessions</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#FF6B00] mt-2 shrink-0"></div>
+                            <span class="text-lg text-zinc-300">Full Movement &amp; Lifestyle Coaching</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#FF6B00] mt-2 shrink-0"></div>
+                            <span class="text-lg text-zinc-300">Personalised Performance Programs</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#FF6B00] mt-2 shrink-0"></div>
+                            <span class="text-lg text-zinc-300">24/7 WhatsApp Support</span>
+                        </li>
+                    </ul>
+
+                    <a href="#"
+                        class="block w-full py-4 px-6 rounded-full border border-[#FF6B00] text-[#FF6B00] text-center text-lg font-medium hover:bg-[#FF6B00] hover:text-[#0D0D0D] transition-colors">
+                        Book Your Plan
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TESTIMONIAL -->
+    <section id="testimonials" class="bg-white text-[#0D0D0D] py-24 lg:py-32 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 relative">
+
+            <i data-lucide="quote"
+                class="w-20 h-20 text-[#FF6B00]/20 absolute -top-8 -left-4 md:-top-12 md:-left-12 rotate-180"
+                stroke-width="2" fill="currentColor"></i>
+
+            <div class="relative z-10">
+                <p
+                    class="font-oswald text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-snug uppercase">
+                    "Training with Stephen completely changed how I move and feel. I went from chronic back pain to
+                    running, jumping and feeling stronger than ever. His approach is unique and genuinely fun."
+                </p>
+
+                <div class="mt-12 flex items-center gap-4">
+                    <div
+                        class="w-16 h-16 rounded-full bg-zinc-200 border-2 border-[#FF6B00] flex items-center justify-center overflow-hidden">
+                        <i data-lucide="user" class="w-8 h-8 text-zinc-400" stroke-width="1.5"></i>
+                    </div>
+                    <div>
+                        <div class="text-xl font-medium text-[#0D0D0D]">Client Name</div>
+                        <div class="text-base text-zinc-500">Warsaw, Poland</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation dots/arrows -->
+            <div class="mt-16 flex items-center gap-6">
+                <button
+                    class="p-3 rounded-full border border-zinc-300 text-zinc-400 hover:text-[#FF6B00] hover:border-[#FF6B00] transition-colors">
+                    <i data-lucide="arrow-left" class="w-6 h-6" stroke-width="1.5"></i>
+                </button>
+                <button
+                    class="p-3 rounded-full border border-[#FF6B00] text-[#FF6B00] bg-orange-50 hover:bg-[#FF6B00] hover:text-white transition-colors">
+                    <i data-lucide="arrow-right" class="w-6 h-6" stroke-width="1.5"></i>
+                </button>
+            </div>
+
+            <i data-lucide="quote"
+                class="w-20 h-20 text-[#FF6B00]/20 absolute -top-8 -left-4 md:-top-12 md:-left-12 rotate-180"
+                stroke-width="2" fill="currentColor"></i>
+        </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="bg-[#0D0D0D] py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.5fr] gap-16">
+
+            <div class="max-w-md">
+                <h2
+                    class="font-oswald text-4xl lg:text-5xl font-medium tracking-tight uppercase leading-tight text-white">
+                    FREQUENTLY ASKED QUESTIONS
+                </h2>
+                <p class="mt-6 text-lg text-zinc-400">
+                    Quick answers to the things people ask most. Can't find what you're looking for? Reach out.
+                </p>
+                <div class="mt-10">
+                    <a href="#contact"
+                        class="inline-flex bg-[#FF6B00] text-[#0D0D0D] px-8 py-3.5 rounded-full text-lg font-medium hover:bg-[#FF7A1A] transition-colors">
+                        Contact
+                    </a>
+                </div>
+            </div>
+
+            <div class="space-y-1">
+                <!-- FAQ Item 1 (Expanded) -->
+                <div class="border-b border-white/10">
+                    <button class="w-full py-6 flex items-center justify-between text-left group"
+                        onclick="toggleFaq(this)">
+                        <div class="flex items-center gap-6">
+                            <span class="font-oswald text-3xl text-[#FF6B00] font-medium tracking-tight">1</span>
+                            <span
+                                class="font-oswald text-xl md:text-2xl font-medium tracking-tight uppercase text-white group-hover:text-[#FF6B00] transition-colors">Do
+                                you train in English?</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-zinc-400 faq-icon rotate-180"
+                            stroke-width="1.5"></i>
+                    </button>
+                    <div class="faq-content overflow-hidden text-lg text-zinc-400 pb-6 pl-[3.5rem] md:pl-[4rem]">
+                        Yes! As a native English speaker, all my training sessions, programs, and communications can be
+                        fully conducted in English. I also have a working knowledge of Polish.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border-b border-white/10">
+                    <button class="w-full py-6 flex items-center justify-between text-left group"
+                        onclick="toggleFaq(this)">
+                        <div class="flex items-center gap-6">
+                            <span class="font-oswald text-3xl text-[#FF6B00] font-medium tracking-tight">2</span>
+                            <span
+                                class="font-oswald text-xl md:text-2xl font-medium tracking-tight uppercase text-white group-hover:text-[#FF6B00] transition-colors">Where
+                                are you based in Warsaw?</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-zinc-400 faq-icon" stroke-width="1.5"></i>
+                    </button>
+                    <div
+                        class="faq-content overflow-hidden text-lg text-zinc-400 pb-0 h-0 pl-[3.5rem] md:pl-[4rem] hidden">
+                        I train clients at various well-equipped gym locations across Warsaw. We can discuss the most
+                        convenient location for you during our initial consultation. I also offer outdoor parkour
+                        sessions weather permitting.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border-b border-white/10">
+                    <button class="w-full py-6 flex items-center justify-between text-left group"
+                        onclick="toggleFaq(this)">
+                        <div class="flex items-center gap-6">
+                            <span class="font-oswald text-3xl text-[#FF6B00] font-medium tracking-tight">3</span>
+                            <span
+                                class="font-oswald text-xl md:text-2xl font-medium tracking-tight uppercase text-white group-hover:text-[#FF6B00] transition-colors">Do
+                                you offer online training?</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-zinc-400 faq-icon" stroke-width="1.5"></i>
+                    </button>
+                    <div
+                        class="faq-content overflow-hidden text-lg text-zinc-400 pb-0 h-0 pl-[3.5rem] md:pl-[4rem] hidden">
+                        Absolutely. My online programs are highly detailed and include video breakdowns, movement
+                        assessments, and regular check-ins to ensure you progress safely and effectively from anywhere
+                        in the world.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border-b border-white/10">
+                    <button class="w-full py-6 flex items-center justify-between text-left group"
+                        onclick="toggleFaq(this)">
+                        <div class="flex items-center gap-6">
+                            <span class="font-oswald text-3xl text-[#FF6B00] font-medium tracking-tight">4</span>
+                            <span
+                                class="font-oswald text-xl md:text-2xl font-medium tracking-tight uppercase text-white group-hover:text-[#FF6B00] transition-colors">What
+                                is your training style?</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-zinc-400 faq-icon" stroke-width="1.5"></i>
+                    </button>
+                    <div
+                        class="faq-content overflow-hidden text-lg text-zinc-400 pb-0 h-0 pl-[3.5rem] md:pl-[4rem] hidden">
+                        My approach blends traditional strength and conditioning with functional movement and parkour
+                        principles. The focus is on building a robust, pain-free body that is capable of handling
+                        real-world physical challenges while looking great.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="border-b border-white/10">
+                    <button class="w-full py-6 flex items-center justify-between text-left group"
+                        onclick="toggleFaq(this)">
+                        <div class="flex items-center gap-6">
+                            <span class="font-oswald text-3xl text-[#FF6B00] font-medium tracking-tight">5</span>
+                            <span
+                                class="font-oswald text-xl md:text-2xl font-medium tracking-tight uppercase text-white group-hover:text-[#FF6B00] transition-colors">How
+                                do I get started?</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-zinc-400 faq-icon" stroke-width="1.5"></i>
+                    </button>
+                    <div
+                        class="faq-content overflow-hidden text-lg text-zinc-400 pb-0 h-0 pl-[3.5rem] md:pl-[4rem] hidden">
+                        Simply click the "Contact" button or reach out via email/WhatsApp. We'll set up a brief
+                        consultation to discuss your goals, history, and figure out which plan works best for your
+                        needs.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CTA BANNER -->
+    <section class="relative py-32 overflow-hidden mx-6 lg:max-w-7xl lg:mx-auto rounded-[2rem] mb-24">
+        <!-- Background Placeholder -->
+        <div class="absolute inset-0 bg-zinc-900">
+            <!-- Simulated image texture -->
+            <div
+                class="absolute inset-0 opacity-20 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1eb9e2e7-6bbc-42fc-abc1-12d321a2e4ce_3840w.jpg)] bg-cover bg-center">
+            </div>
+        </div>
+
+        <!-- Overlays -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+        <div class="absolute inset-0 bg-[#FF6B00]/10 mix-blend-overlay"></div>
+
+        <div class="relative z-10 max-w-3xl mx-auto text-center px-6">
+            <h2 class="font-oswald text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight uppercase text-white">
+                Ready to Transform Your Movement?
+            </h2>
+            <p class="mt-6 text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto">
+                Take the first step toward a stronger, healthier, more confident you. Let's build a body that's capable
+                of anything.
+            </p>
+            <div class="mt-10">
+                <a href="#contact"
+                    class="inline-flex bg-[#FF6B00] text-[#0D0D0D] px-10 py-4 rounded-full text-lg font-medium hover:bg-[#FF7A1A] transition-colors shadow-xl shadow-[#FF6B00]/20">
+                    Start Your Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer id="contact" class="bg-[#0D0D0D] pt-12 pb-8 overflow-hidden">
+
+        <!-- Giant Marquee -->
+        <div
+            class="marquee-container marquee-slow text-white opacity-90 font-oswald text-[12vw] tracking-tighter font-medium uppercase leading-none whitespace-nowrap mb-16 select-none">
+            <span class="mx-8">CONTACT ME</span><span class="text-[#FF6B00]">■</span>
+            <span class="mx-8">CONTACT ME</span><span class="text-[#FF6B00]">■</span>
+            <span class="mx-8">CONTACT ME</span><span class="text-[#FF6B00]">■</span>
+            <span class="mx-8">CONTACT ME</span><span class="text-[#FF6B00]">■</span>
+            <!-- Duplicate for loop -->
+            <span class="mx-8">CONTACT ME</span><span class="text-[#FF6B00]">■</span>
+            <span class="mx-8">CONTACT ME</span><span class="text-[#FF6B00]">■</span>
+            <span class="mx-8">CONTACT ME</span><span class="text-[#FF6B00]">■</span>
+            <span class="mx-8">CONTACT ME</span><span class="text-[#FF6B00]">■</span>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 py-12 border-t border-white/10">
+                <div class="text-center md:text-left">
+                    <div class="text-lg text-zinc-500 mb-2">Email</div>
+                    <a href="mailto:ziplokwalker@gmail.com"
+                        class="text-xl md:text-2xl text-white font-medium hover:text-[#FF6B00] transition-colors">ziplokwalker@gmail.com</a>
+                </div>
+                <div class="hidden md:block w-px h-16 bg-white/10"></div>
+                <div class="text-center md:text-right">
+                    <div class="text-lg text-zinc-500 mb-2">Phone</div>
+                    <a href="tel:+48882927380"
+                        class="text-xl md:text-2xl text-white font-medium hover:text-[#FF6B00] transition-colors">+48
+                        882 927 380</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10">
+                <p class="text-base text-zinc-500">
+                    © 2025 Stephen Walker Personal Trainer. All Rights Reserved.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-zinc-500 hover:text-[#FF6B00] transition-colors">
+                        <i data-lucide="instagram" class="w-6 h-6" stroke-width="1.5"></i>
+                    </a>
+                    <a href="#" class="text-zinc-500 hover:text-[#FF6B00] transition-colors">
+                        <i data-lucide="facebook" class="w-6 h-6" stroke-width="1.5"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/stephenwalkerpersonaltrainer"
+                        class="text-zinc-500 hover:text-[#FF6B00] transition-colors" target="_blank">
+                        <i data-lucide="linkedin" class="w-6 h-6" stroke-width="1.5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // FAQ Toggle Logic
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            const isHidden = content.classList.contains('hidden');
+
+            // Optional: Close all other open FAQs
+            // document.querySelectorAll('.faq-content').forEach(el => { el.classList.add('hidden'); el.style.paddingBottom = '0'; el.style.height = '0'; });
+            // document.querySelectorAll('.faq-icon').forEach(el => el.classList.remove('rotate-180'));
+
+            if (isHidden) {
+                content.classList.remove('hidden');
+                // Small delay to allow display block to apply before transition (simulated height transition effect)
+                setTimeout(() => {
+                    content.style.height = 'auto';
+                    content.classList.add('pb-6');
+                }, 10);
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                content.classList.remove('pb-6');
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

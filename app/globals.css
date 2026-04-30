@@ -1,0 +1,472 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────
+   UNICARE — Design System
+   Brand feel: honest · grounded · human
+   Palette: Deep charcoal · Ember orange · Warm cream
+───────────────────────────────────────── */
+
+:root {
+  --ember: #FF4500;
+  --ember-hover: #FF5C1F;
+  --ember-dim: rgba(255, 69, 0, 0.55);
+  --cream: #FFDFB3;
+  --cream-soft: #FFF8ED;
+  --bg: #050505;
+  --bg-dark: #080808;
+  --bg-warm: #0C0A08;
+  --bg-light: #FDFBF7;
+  --bg-card: #FFFFFF;
+  --text-primary: #F8F5F0;
+  --text-dark: #1A1714;
+  --text-body: #33312E;
+  --text-muted: #8E8A80;
+  --text-mid: #C2BCB0;
+  --text-subtle: #55524E;
+  --trust-green: #0B2F2D;
+  --border-light: rgba(0, 0, 0, 0.06);
+  --border-dark: rgba(255, 255, 255, 0.07);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --radius-sm: 0.75rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.6rem;
+  --radius-xl: 2rem;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* ── Mono font ── */
+.font-mono {
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+/* ─────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────── */
+
+@keyframes cinematicUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.6rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulseEmber {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 14px rgba(255, 69, 0, 0.75);
+  }
+
+  50% {
+    opacity: 0.55;
+    box-shadow: 0 0 4px rgba(255, 69, 0, 0.15);
+  }
+}
+
+@keyframes barGrow {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: var(--bar-width, 0%);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────
+   UTILITY CLASSES
+───────────────────────────────────────── */
+
+.cinematic-up {
+  opacity: 0;
+  animation: cinematicUp 1.4s var(--ease-out) forwards;
+}
+
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.45s;
+}
+
+/* ── Eyebrow label ── */
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+.eyebrow-cream {
+  color: var(--cream);
+}
+
+.eyebrow-muted {
+  color: var(--text-muted);
+}
+
+.eyebrow-white {
+  color: var(--text-primary);
+}
+
+/* ─────────────────────────────────────────
+   SECTION BACKGROUNDS
+───────────────────────────────────────── */
+.sec-dark {
+  background: var(--bg-dark);
+}
+
+.sec-warm {
+  background: var(--bg-warm);
+}
+
+.sec-light {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.sec-trust {
+  background: var(--trust-green);
+  color: var(--text-primary);
+}
+
+/* ─────────────────────────────────────────
+   CARD SYSTEM
+───────────────────────────────────────── */
+
+/* Dark card (on dark backgrounds) */
+.trust-card-dark {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.4s var(--ease-out),
+    background 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+}
+
+.trust-card-dark:hover {
+  border-color: rgba(255, 69, 0, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* Light card (on light backgrounds) */
+.trust-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+}
+
+.trust-card:hover {
+  border-color: rgba(255, 69, 0, 0.18);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(20, 12, 5, 0.09);
+}
+
+/* ─────────────────────────────────────────
+   PROOF BADGE
+───────────────────────────────────────── */
+.proof-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.proof-badge-ember {
+  background: rgba(255, 69, 0, 0.09);
+  border: 1px solid rgba(255, 69, 0, 0.22);
+  color: var(--cream);
+}
+
+.proof-badge-green {
+  background: rgba(11, 47, 45, 0.12);
+  border: 1px solid rgba(11, 47, 45, 0.28);
+  color: var(--trust-green);
+}
+
+/* ── Verified dot ── */
+.verified-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 7px rgba(34, 197, 94, 0.5);
+  flex-shrink: 0;
+}
+
+/* ── Quote mark ── */
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(255, 69, 0, 0.1);
+  position: absolute;
+  top: -0.25rem;
+  left: 0.5rem;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────
+   TICKER
+───────────────────────────────────────── */
+.ticker-track {
+  animation: scroll 38s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─────────────────────────────────────────
+   INTERACTIVE ELEMENTS
+───────────────────────────────────────── */
+
+/* Pulse dot CTA */
+.pulse-ember {
+  animation: pulseEmber 2.2s ease-in-out infinite;
+}
+
+/* Input focus ring */
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Smooth scrollbar hide */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Cursor blink */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ── Modal overlay ── */
+.modal-overlay {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ── Bar chart grow animation ── */
+.bar-grow {
+  width: 0%;
+  animation: barGrow 1.2s var(--ease-out) forwards;
+}
+
+/* ─────────────────────────────────────────
+   COUNT ANIMATION
+───────────────────────────────────────── */
+.count-anim {
+  animation: countUp 0.6s var(--ease-out) forwards;
+}
+
+/* ─────────────────────────────────────────
+   GRADIENT TEXT
+───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--ember) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────
+   EMBER HOVER CELLS
+───────────────────────────────────────── */
+.ember-cell {
+  border-left: 2px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.ember-cell:hover {
+  border-color: var(--ember);
+  background: rgba(255, 70, 0, 0.04);
+}
+
+/* ─────────────────────────────────────────
+   DETAILS / FAQ ACCORDION
+───────────────────────────────────────── */
+details>summary {
+  list-style: none;
+}
+
+details>summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-icon {
+  display: inline-flex;
+  transition: transform 0.35s var(--ease-out);
+}
+
+/* ─────────────────────────────────────────
+   LINK UNDERLINE EFFECT
+───────────────────────────────────────── */
+.underline-hover {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--ember);
+  transition: width 0.35s var(--ease-out);
+}
+
+.underline-hover:hover::after {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────
+   SELECTION
+───────────────────────────────────────── */
+::selection {
+  background: rgba(255, 69, 0, 0.18);
+  color: var(--cream);
+}
