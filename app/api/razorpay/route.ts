@@ -1,15 +1,6 @@
 import { NextResponse } from "next/server";
 import Razorpay from "razorpay";
 
-const razorpay = new Razorpay({
-    // support both RAZORPAY_KEY_ID (server-only) and NEXT_PUBLIC_ variant
-    key_id:
-        process.env.RAZORPAY_KEY_ID ||
-        process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
-        "",
-    key_secret: process.env.RAZORPAY_KEY_SECRET || "",
-});
-
 export const runtime = "nodejs";
 
 export async function POST(req: Request) {
@@ -26,6 +17,9 @@ export async function POST(req: Request) {
             { status: 500 }
         );
     }
+
+    // Lazily instantiate Razorpay inside the handler so it never crashes at build time
+    const razorpay = new Razorpay({ key_id: keyId, key_secret: keySecret });
 
     try {
         const body = await req.json();
