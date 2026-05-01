@@ -446,24 +446,17 @@ function BookingModal({ plan, defaultTrack, onTrackChange, onClose }: { plan: Pl
     setErr(false);
 
     try {
-      // 1. Submit lead
+      // 1. Submit lead first (always, regardless of payment)
       await submitLead({ source: "booking", email: form.email, name: form.name, track: tracks[form.track].name, plan: plan.label, block: form.block, change: form.change });
 
-      // 2. Load razorpay
-      const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-      if (!res) {
-        setErr(true);
-        setSaving(false);
-        return;
-      }
-
-      // 3. Create order API call
+      // 2. Free plan — skip payment, go straight to WhatsApp
       const numericPrice = parseInt(plan.price.replace(/[^0-9]/g, ""));
       if (isNaN(numericPrice) || numericPrice === 0) {
         window.location.href = whatsappHref(form.track, plan, form);
         return;
       }
 
+      // 3. Create order on the server (validates keys server-side)
       const orderRes = await fetch("/api/razorpay", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -471,28 +464,39 @@ function BookingModal({ plan, defaultTrack, onTrackChange, onClose }: { plan: Pl
       });
       const order = await orderRes.json();
 
+      // If payment gateway isn't configured yet, fall back to WhatsApp gracefully
+      if (order.error === "Payment gateway not configured.") {
+        window.location.href = whatsappHref(form.track, plan, form);
+        return;
+      }
       if (order.error) throw new Error(order.error);
 
-      // 4. Razorpay options
+      // 4. Load Razorpay checkout script only when needed
+      const scriptLoaded = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
+      if (!scriptLoaded) {
+        setErr(true);
+        setSaving(false);
+        return;
+      }
+
+      // 5. Open Razorpay — key comes from env var (set in deployment settings)
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_YourKeyId",
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,   // set in Vercel → Environment Variables
         amount: order.amount,
         currency: order.currency,
         name: "UniCare",
-        description: `${plan.label} - ${tracks[form.track].name}`,
+        description: `${plan.label} — ${tracks[form.track].name}`,
         image: "/unilogo.png",
         order_id: order.id,
         handler: function () {
-          // Success! Redirect to WhatsApp
+          // Payment successful → redirect to WhatsApp
           window.location.href = whatsappHref(form.track, plan, form);
         },
         prefill: {
           name: form.name,
           email: form.email,
         },
-        theme: {
-          color: "#FF4500",
-        },
+        theme: { color: "#FF4500" },
         modal: {
           ondismiss: function () {
             setSaving(false);
@@ -503,8 +507,8 @@ function BookingModal({ plan, defaultTrack, onTrackChange, onClose }: { plan: Pl
       const paymentObject = new (window as any).Razorpay(options);
       paymentObject.open();
 
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
       setSaving(false);
       setErr(true);
     }
