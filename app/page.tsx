@@ -61,7 +61,7 @@ function useReveal() {
 }
 
 // WhatsApp group link — redirects to the UniCare community
-const UNICARE_WA = "https://chat.whatsapp.com/ISLDhQKI7861nIKx1K0Bq7";
+const UNICARE_WA = "https://chat.whatsapp.com/HqzVaNogUXeHn8Z63da8WL";
 
 function whatsappHref(_track?: TrackKey, _plan?: Plan, _form?: BookingForm) {
   return UNICARE_WA;
