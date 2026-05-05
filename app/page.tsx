@@ -446,17 +446,33 @@ function BookingModal({ plan, defaultTrack, onTrackChange, onClose }: { plan: Pl
     setErr(false);
 
     try {
-      // 1. Submit lead first (always, regardless of payment)
+      // 1. Submit lead first (always captured regardless of payment)
       await submitLead({ source: "booking", email: form.email, name: form.name, track: tracks[form.track].name, plan: plan.label, block: form.block, change: form.change });
 
-      // 2. Free plan — skip payment, go straight to WhatsApp
+      // 2. If Razorpay key isn't configured, skip payment and go to WhatsApp
+      //    This handles the case where env vars haven't been added to Vercel yet.
+      const razorpayKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+      if (!razorpayKey) {
+        window.location.href = whatsappHref(form.track, plan, form);
+        return;
+      }
+
+      // 3. Free plan — skip payment, go straight to WhatsApp
       const numericPrice = parseInt(plan.price.replace(/[^0-9]/g, ""));
       if (isNaN(numericPrice) || numericPrice === 0) {
         window.location.href = whatsappHref(form.track, plan, form);
         return;
       }
 
-      // 3. Create order on the server (validates keys server-side)
+      // 4. Load Razorpay script
+      const scriptLoaded = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
+      if (!scriptLoaded) {
+        // Script failed to load — still send to WhatsApp, don't block the user
+        window.location.href = whatsappHref(form.track, plan, form);
+        return;
+      }
+
+      // 5. Create order on the server
       const orderRes = await fetch("/api/razorpay", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -464,24 +480,15 @@ function BookingModal({ plan, defaultTrack, onTrackChange, onClose }: { plan: Pl
       });
       const order = await orderRes.json();
 
-      // If payment gateway isn't configured yet, fall back to WhatsApp gracefully
-      if (order.error === "Payment gateway not configured.") {
+      // Any server-side error → WhatsApp fallback (lead already captured)
+      if (order.error) {
         window.location.href = whatsappHref(form.track, plan, form);
         return;
       }
-      if (order.error) throw new Error(order.error);
 
-      // 4. Load Razorpay checkout script only when needed
-      const scriptLoaded = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-      if (!scriptLoaded) {
-        setErr(true);
-        setSaving(false);
-        return;
-      }
-
-      // 5. Open Razorpay — key comes from env var (set in deployment settings)
+      // 6. Open Razorpay checkout popup
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,   // set in Vercel → Environment Variables
+        key: razorpayKey,
         amount: order.amount,
         currency: order.currency,
         name: "UniCare",
@@ -509,8 +516,8 @@ function BookingModal({ plan, defaultTrack, onTrackChange, onClose }: { plan: Pl
 
     } catch (err) {
       console.error(err);
-      setSaving(false);
-      setErr(true);
+      // Even on unexpected errors, send to WhatsApp — lead is already saved
+      window.location.href = whatsappHref(form.track, plan, form);
     }
   };
 
